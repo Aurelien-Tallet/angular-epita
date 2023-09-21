@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import {ListItemComponent} from "./list-item/list-item.component";
 import {environment} from "../srv/environment/environment";
 
 // Dependency injection in ListItemComponent
 @Injectable({
-  providedIn: ListItemComponent
+  providedIn: "root"
 })
 
 /*

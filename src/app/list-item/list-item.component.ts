@@ -7,8 +7,10 @@ import {MarvelService} from "../marvel.service";
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent {
+  test: Array<string>;
   // Init Api Helper
   constructor(private apiHelper: MarvelService) {
     this.apiHelper = new MarvelService;
+    this.test = this.apiHelper.getCharacters();
   }
 }
