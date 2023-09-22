@@ -4,14 +4,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import environment from 'src/environments/environment.dev';
 
-
-// Dependency injection in ListItemComponent
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 
 /*
-* Marvel Api Servie init
+ * Marvel Api Servie init
  */
 export class MarvelService {
   baseUrl: string;
@@ -24,18 +22,17 @@ export class MarvelService {
     this.port = environment.port;
     this.publicKey = environment.publicKey;
     this.privateKey = environment.privateKey;
-   }
+  }
 
   getAllCharacters(): Observable<any> {
     const timestamp = new Date().getTime().toString();
     const hash = this.generateHash(timestamp);
-
     let params = new HttpParams()
       .set('apikey', this.publicKey)
       .set('ts', timestamp)
-      .set('hash', hash)
-
-    return this.http.get<any>(`${this.baseUrl}:${this.port}/v1/public/characters`, { params });
+      .set('hash', hash);
+    const URL = `${this.baseUrl}:${this.port}/v1/public/characters` as const;
+    return this.http.get<any>(URL, { params });
   }
   // Move this method to a helper file
   private generateHash(timestamp: string): string {
@@ -43,6 +40,3 @@ export class MarvelService {
     return crypto.MD5(hashInput).toString();
   }
 }
-
-
-
