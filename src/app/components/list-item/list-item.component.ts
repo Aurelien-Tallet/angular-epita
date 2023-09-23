@@ -7,14 +7,12 @@ import { MarvelService } from '../../services/marvel.service';
   styleUrls: ['./list-item.component.scss'],
 })
 export class ListItemComponent {
-  test: Array<any>;
+  test: Array<any> = [];
   constructor(private marvelService: MarvelService) {
-    this.test = [];
   }
-  // Get all characters
   ngOnInit(): void {
-    this.marvelService.getAllCharacters().subscribe((data) => {
-      this.test = data.data.results;
+    this.marvelService.getAllCharacters().subscribe(({ data }) => {
+      this.test = data.results;
     });
   }
 }

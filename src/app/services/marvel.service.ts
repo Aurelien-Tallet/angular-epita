@@ -12,24 +12,16 @@ import hash from '@app/helpers/hash';
  * Marvel Api Servie init
  */
 export class MarvelService {
-  baseUrl: string;
-  port: number;
-  publicKey: string;
-  privateKey: string;
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) {
-    this.baseUrl = environment.baseUrl;
-    this.port = environment.port;
-    this.publicKey = environment.publicKey;
-    this.privateKey = environment.privateKey;
-  }
   getAllCharacters(): Observable<any> {
+    const { baseUrl, port, publicKey, privateKey } = environment;
     const timestamp = new Date().getTime().toString();
     let params = new HttpParams()
-      .set('apikey', this.publicKey)
+      .set('apikey', publicKey)
       .set('ts', timestamp)
-      .set('hash', hash(timestamp + this.privateKey + this.publicKey));
-    const URL = `${this.baseUrl}:${this.port}/v1/public/characters` as const;
+      .set('hash', hash(timestamp + privateKey + publicKey));
+    const URL: string = `${baseUrl}:${port}/v1/public/characters` as const;
     return this.http.get<any>(URL, { params });
   }
 }
