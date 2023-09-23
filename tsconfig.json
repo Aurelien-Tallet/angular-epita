@@ -42,7 +42,7 @@
       "@helpers" : [
         "src/app/helpers/*"
       ],
-    },
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
