@@ -30,6 +30,12 @@
       "@env/*": [
         "src/environments/*"
       ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@components/*": [
+        "src/app/components/*"
+      ],
       "@modules/*": [
         "src/app/modules/*"
       ],

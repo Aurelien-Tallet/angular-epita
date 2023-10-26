@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-epita';
+  constructor() { }
+  handleSearch(event: string) { 
+    console.log(event);
+  }
 }

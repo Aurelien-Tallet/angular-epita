@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MarvelService } from '../../services/marvel.service';
+import { MarvelService } from '@services/marvel.service';
 
 @Component({
   selector: 'app-list-item',

@@ -1,6 +1,7 @@
 <div class="content" role="main">
   <h1>ANGULAR EPITA zer</h1>
   <app-list-item></app-list-item>
+  <app-input-search (searchEvent)="handleSearch($event)"></app-input-search>
 </div>
 
 <router-outlet></router-outlet>

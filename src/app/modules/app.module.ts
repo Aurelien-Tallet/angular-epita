@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from '../app-routing.module';
 import { AppComponent } from '../app.component';
-import { ListItemComponent } from '../components/list-item/list-item.component';
+import { ListItemComponent } from '@components/list-item/list-item.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InputSearchComponent } from '@app/components/input-search/input-search.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ListItemComponent
+    ListItemComponent,
+    InputSearchComponent
   ],
   imports: [
     BrowserModule,
