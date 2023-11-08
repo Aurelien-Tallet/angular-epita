@@ -5,7 +5,7 @@ import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'single/:id', component: SingleComponent },
+  { path: 'character/:id', component: SingleComponent },
   {
     path: '**',
     redirectTo: ''
