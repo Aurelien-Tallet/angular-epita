@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MarvelService } from '../../services/marvel.service';
+import { MarvelService } from '@services/marvel.service';
 
 @Component({
   selector: 'app-list-item',
@@ -7,12 +7,12 @@ import { MarvelService } from '../../services/marvel.service';
   styleUrls: ['./list-item.component.scss'],
 })
 export class ListItemComponent {
-  test: Array<any> = [];
+  characters: Array<any> = [];
   constructor(private marvelService: MarvelService) {
   }
   ngOnInit(): void {
     this.marvelService.getAllCharacters().subscribe(({ data }) => {
-      this.test = data.results;
+      this.characters = data.results;
     });
   }
 }
