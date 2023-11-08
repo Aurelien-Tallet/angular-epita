@@ -1,4 +1,15 @@
 <div class="content" role="main">
-  <router-outlet></router-outlet>
+  <nav>
+    <ul>
+      <li><strong>Brand</strong></li>
+    </ul>
+  </nav>
+  <form class="search">
+    <input type="search" id="search" name="search" placeholder="Search">
+  </form>
+  <div class="grid">
+    <app-list-item></app-list-item>
+  </div>
 </div>
 
+<router-outlet></router-outlet>

@@ -1,3 +1,16 @@
 <div class="container">
-  <p *ngFor="let text of test;"> {{text.id}} : {{ text.name}} </p>
+    <article *ngFor="let character of characters;">
+        <header>
+            <hgroup>
+                <nav>
+                    <ul>
+                        <li>
+                            <a [href]="'/character/' + character.id">{{character.name}}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </hgroup>
+        </header>
+        <pre>{{character | json}}</pre>
+    </article>
 </div>
