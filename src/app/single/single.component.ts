@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Route} from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import {MarvelService} from "@services/marvel.service";
 
 @Component({
@@ -10,10 +8,9 @@ import {MarvelService} from "@services/marvel.service";
   styleUrls: ['./single.component.scss']
 })
 export class SingleComponent {
-  // charId:string;
+  name = '';
   charId= '';
-  constructor(private route: ActivatedRoute,private marvelService: MarvelService) {
-  }
+  constructor(private route: ActivatedRoute,private marvelService: MarvelService) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
