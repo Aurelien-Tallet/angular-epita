@@ -9,33 +9,23 @@ import hash from '@app/helpers/hash';
 })
 
 /*
- * Marvel Api Servie init
+ * Marvel Api Service init
  */
 export class MarvelService {
-  private readonly baseUrl: string
-  private readonly port: number
-  private readonly publicKey: string
-  private readonly privateKey: string
-  constructor(private http: HttpClient) {
-    const { baseUrl, port, publicKey, privateKey } = environment;
-    this.baseUrl = baseUrl;
-    this.port = port;
-    this.publicKey = publicKey;
-    this.privateKey = privateKey;
-  }
-  marvelRequest(path: string): Observable<any> {
+  constructor(private http: HttpClient) {}
+  getMarvelRequest(path: string): Observable<any> {
     const timestamp = new Date().getTime().toString();
     let params = new HttpParams()
-      .set('apikey', this.publicKey)
+      .set('apikey', environment.publicKey)
       .set('ts', timestamp)
-      .set('hash', hash(timestamp + this.privateKey + this.publicKey));
-    const URL: string = `${this.baseUrl}:${this.port}${path}` as const;
+      .set('hash', hash(timestamp + environment.privateKey + environment.publicKey));
+    const URL: string = `${environment.baseUrl}:${environment.port}${path}` as const;
     return this.http.get<any>(URL, { params });
   }
   getAllCharacters(): Observable<any> {
-    return this.marvelRequest('/v1/public/characters');
+    return this.getMarvelRequest('/v1/public/characters');
   }
   getSingleCharacter(id: string): Observable<any> {
-    return this.marvelRequest(`/v1/public/characters/${id}`);
+    return this.getMarvelRequest(`/v1/public/characters/${id}`);
   }
 }
