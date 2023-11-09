@@ -1,4 +1,4 @@
-<div class="container">
+<section class="container">
     <article *ngFor="let character of characters;">
         <header>
             <hgroup>
@@ -11,6 +11,8 @@
                 </nav>
             </hgroup>
         </header>
-        <pre>{{character | json}}</pre>
+        <figure>
+            <img [src]="buildImage(character.thumbnail)" alt="Minimal landscape" width="150" height="100" />
+        </figure>
     </article>
-</div>
+</section>
