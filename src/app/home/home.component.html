@@ -1,4 +1,23 @@
-<h1>Accueil</h1>
+<nav>
+  <ul>
+    <li><strong>Brand</strong></li>
+  </ul>
+</nav>
+<form class="container">
+  <div class="grid">
+    <input type="search" id="search" name="search" placeholder="Search">
+    <div class="grid">
+      <details role="list">
+        <summary aria-haspopup="listbox">Dropdown</summary>
+        <ul role="listbox">
+          <li><a>Action</a></li>
+          <li><a>Another action</a></li>
+          <li><a>Something else here</a></li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</form>
 <div class="grid">
-  <app-list-item></app-list-item>
+  <app-list-item [characters]="characters"></app-list-item>
 </div>

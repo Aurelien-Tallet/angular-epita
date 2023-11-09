@@ -1,16 +1,20 @@
-<div class="container">
-    <article *ngFor="let character of characters;">
-        <header>
-            <hgroup>
-                <nav>
-                    <ul>
-                        <li>
-                            <a [href]="'/character/' + character.id">{{character.name}}</a>
-                        </li>
-                    </ul>
-                </nav>
-            </hgroup>
-        </header>
-        <pre>{{character | json}}</pre>
-    </article>
-</div>
+<section class="container">
+    <div class="grid">
+        <article *ngFor="let character of characters;">
+            <header>
+                <hgroup>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a [routerLink]="['/character/', character.id]">{{character.name}}</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </hgroup>
+            </header>
+            <figure>
+                <img [src]=" buildImage(character.thumbnail)" alt="Minimal landscape" width="150" height="100" />
+            </figure>
+        </article>
+    </div>
+</section>
