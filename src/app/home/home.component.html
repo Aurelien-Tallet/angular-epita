@@ -1,17 +1,5 @@
 <form class="container">
-  <div class="grid">
     <app-input-search (searchEvent)="onSearch($event)"></app-input-search>
-    <div class="grid">
-      <details role="list">
-        <summary aria-haspopup="listbox">Dropdown</summary>
-        <ul role="listbox">
-          <li><a>Action</a></li>
-          <li><a>Another action</a></li>
-          <li><a>Something else here</a></li>
-        </ul>
-      </details>
-    </div>
-  </div>
 </form>
 <div class="grid">
   <app-list-item [drinks]="drinks" [isLoading]="isLoading"></app-list-item>

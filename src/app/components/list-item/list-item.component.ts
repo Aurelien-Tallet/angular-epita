@@ -8,5 +8,4 @@ import {Drink} from "@models/drink.interface";
 export class ListItemComponent {
   @Input() drinks: Array<Drink> = [];
   @Input() isLoading: boolean = true;
-  skeletonList: Array<any> = [...Array(20).fill(0)];
 }

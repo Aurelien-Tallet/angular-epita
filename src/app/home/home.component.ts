@@ -13,10 +13,9 @@ export class HomeComponent {
   }
   ngOnInit(): void {
     this.apiService.searchByName("").subscribe(({ drinks }) => {
-      setTimeout(() => {
       this.drinks = drinks;
       this.isLoading = false;
-      }, 1000);
+      console.log(this.drinks);
     });
   }
   onSearch(searchText: string) { 

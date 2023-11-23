@@ -1,23 +1,12 @@
-<section class="container">
-    <!-- <app-loader *ngIf="isLoading"></app-loader> -->
-
-    <app-skeletton-list-item *ngIf="isLoading"></app-skeletton-list-item>
-    <ul class="grid-container" *ngIf="!isLoading">
-        <li class="list-item" *ngFor="let drink of drinks;">
-            <a [routerLink]="['/drink/', drink.idDrink]">
-                <img [src]="drink.strDrinkThumb" alt="">
+<section>
+    <ul class="container-list">
+        <li *ngFor="let drink of drinks">
+            <a href="">
+                <figure>
+                    <img src="{{drink.strDrinkThumb}}" alt="{{drink.strDrink}}" />
+                </figure>
                 <span>{{drink.strDrink}}</span>
             </a>
         </li>
     </ul>
-    <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a href="#" class="active">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
-    </div>
 </section>
