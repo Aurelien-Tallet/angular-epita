@@ -1,10 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Lora&family=Noto+Sans&display=swap');
-html{
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
   font-family: 'Noto Sans', sans-serif;
 }
 
-:root{
+:root {
   --NotoSans: 'Noto Sans', sans-serif;
   --Lora: 'Lora', serif;
   --white: #FAFFFE;
@@ -13,8 +20,11 @@ html{
   --primaryLight: #EDFCFF;
   --accent: #F35858;
 }
-body{
-  background-image: linear-gradient(37deg, rgb(237,252,255),rgb(255,255,255));
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
-
-

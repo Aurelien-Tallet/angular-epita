@@ -1,5 +1,34 @@
 <section class="single-drink">
+  <div class="bg">
+    <h1>{{ cocktail?.strDrink }}</h1>
+  </div>
+  <div class="container">
+    <div class="left">
+      <div class="img">
+        <img src="{{ cocktail?.strImageSource ? cocktail?.strImageSource : cocktail?.strDrinkThumb }}" alt="{{ cocktail?.strDrink }}"/>
+      </div>
+      <p><strong>Type:</strong> {{ cocktail?.strAlcoholic }}</p>
+      <p><strong>Glass:</strong> {{ cocktail?.strGlass }}</p>
 
+    </div>
+    <div class="right">
+      <div class="top">
+        <h1>{{ cocktail?.strDrink }}</h1>
+        <p>{{ cocktail?.strCategory }}</p>
+      </div>
+      <div class="bottom">
+        <h3>Ingredients</h3>
+        <ul>
+          <li *ngFor="let ingredient of getIngredients(cocktail)">
+            {{ ingredient }}
+          </li>
+        </ul>
+
+        <h3>Instructions</h3>
+        <p>{{ cocktail?.strInstructions }}</p>
+      </div>
+    </div>
+  </div>
 </section>
 <!--<section class="single-drink container">-->
 <!--  <div class="card">-->
@@ -7,8 +36,6 @@
 <!--    <div class="card-body">-->
 <!--      <h2>{{ cocktail?.strDrink }}</h2>-->
 <!--      <p><strong>Category:</strong> {{ cocktail?.strCategory }}</p>-->
-<!--      <p><strong>Type:</strong> {{ cocktail?.strAlcoholic }}</p>-->
-<!--      <p><strong>Glass:</strong> {{ cocktail?.strGlass }}</p>-->
 <!--      <p><strong>Instructions:</strong> {{ cocktail?.strInstructions }}</p>-->
 <!--      <div>-->
 <!--        <h3>Ingredients:</h3>-->

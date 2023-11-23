@@ -5,7 +5,7 @@ import {ApiService} from "@services/api.service";
 @Component({
   selector: 'app-single',
   templateUrl: './single.component.html',
-  styleUrls: ['./single.component.scss'],
+  styleUrls: ['./single.component.scss','../../styles.scss'],
 })
 export class SingleComponent implements OnInit {
   public cocktail: any;
