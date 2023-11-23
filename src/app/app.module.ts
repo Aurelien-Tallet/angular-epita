@@ -9,6 +9,7 @@ import { SingleComponent } from './single/single.component';
 import { HomeComponent } from './home/home.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { SkelettonListItemComponent } from './components/skeletton-list-item/skeletton-list-item.component';
+import { InputSearchComponent } from './components/input-search/input-search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { SkelettonListItemComponent } from './components/skeletton-list-item/ske
     SingleComponent,
     HomeComponent,
     LoaderComponent,
-    SkelettonListItemComponent
+    SkelettonListItemComponent,
+    InputSearchComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@
 </nav>
 <form class="container">
   <div class="grid">
-    <input type="search" id="search" name="search" placeholder="Search">
+    <app-input-search (searchEvent)="onSearch($event)"></app-input-search>
     <div class="grid">
       <details role="list">
         <summary aria-haspopup="listbox">Dropdown</summary>
@@ -19,5 +19,5 @@
   </div>
 </form>
 <div class="grid">
-  <app-list-item [drinks]="drinks"></app-list-item>
+  <app-list-item [drinks]="drinks" [isLoading]="isLoading"></app-list-item>
 </div>
