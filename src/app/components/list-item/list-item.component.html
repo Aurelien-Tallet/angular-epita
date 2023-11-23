@@ -1,20 +1,21 @@
 <section class="container">
-    <div class="grid">
-        <article *ngFor="let character of characters;">
-            <header>
-                <hgroup>
-                    <nav>
-                        <ul>
-                            <li>
-                                <a [routerLink]="['/character/', character.id]">{{character.name}}</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </hgroup>
-            </header>
-            <figure>
-                <img [src]=" buildImage(character.thumbnail)" alt="Minimal landscape" width="150" height="100" />
-            </figure>
-        </article>
+    <app-loader *ngIf="true"></app-loader>
+
+    <app-skeletton-list-item *ngIf="true"></app-skeletton-list-item>
+    <ul class="grid-container" *ngIf="!!characters">
+        <li class="list-item" *ngFor="let character of characters;">
+            <img [src]="URL(character.thumbnail)" alt="">
+            <a [routerLink]="['/character/', character.id]">{{character.name}}</a>
+        </li>
+    </ul>
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a href="#" class="active">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
     </div>
 </section>

@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { MarvelService } from '@services/marvel.service';
 type Thumbnail = { path: string, extension: string };
 @Component({
   selector: 'app-list-item',
@@ -8,8 +7,10 @@ type Thumbnail = { path: string, extension: string };
 })
 export class ListItemComponent {
   @Input() characters: Array<any> = [];
-
-  buildImage({ path, extension }: Thumbnail): string {
+  @Input() isLoading: boolean = true;
+  skeletonList: Array<any> = [...Array(20).fill(0)];
+  URL({ path, extension }: Thumbnail): string {
     return `${path}.${extension}`;
   }
+
 }
