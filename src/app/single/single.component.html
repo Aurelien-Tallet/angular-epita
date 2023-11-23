@@ -1,3 +1,20 @@
 <section class="container">
-  <h2>{{ name }}</h2>
+  <div class="card">
+    <img src="{{ cocktail?.strDrinkThumb }}" alt="{{ cocktail?.strDrink }}" />
+    <div class="card-body">
+      <h2>{{ cocktail?.strDrink }}</h2>
+      <p><strong>Category:</strong> {{ cocktail?.strCategory }}</p>
+      <p><strong>Type:</strong> {{ cocktail?.strAlcoholic }}</p>
+      <p><strong>Glass:</strong> {{ cocktail?.strGlass }}</p>
+      <p><strong>Instructions:</strong> {{ cocktail?.strInstructions }}</p>
+      <div>
+        <h3>Ingredients:</h3>
+        <ul>
+          <li *ngFor="let ingredient of getIngredients(cocktail)">
+            {{ ingredient }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>

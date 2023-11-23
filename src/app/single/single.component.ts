@@ -1,22 +1,30 @@
-import { Component } from '@angular/core';
-import {ActivatedRoute, Route} from '@angular/router';
-import {ApiService} from "@services/api.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from "@services/api.service";
 
 @Component({
   selector: 'app-single',
   templateUrl: './single.component.html',
   styleUrls: ['./single.component.scss']
 })
-export class SingleComponent {
-  public name = '';
-  private charId= '';
-  constructor(private route: ActivatedRoute,private apiService: ApiService) {}
+export class SingleComponent implements OnInit {
+  public cocktail: any;
 
+  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  getIngredients(cocktail: any): string[] {
+    const ingredients = [];
+    for (let i = 1; i <= 15; i++) {
+      if (cocktail[`strIngredient${i}`]) {
+        ingredients.push(`${cocktail[`strIngredient${i}`]} - ${cocktail[`strMeasure${i}`] || ''}`);
+      }
+    }
+    return ingredients;
+  }
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-     this.charId = params["id"];
-      this.apiService.getSingle(this.charId).subscribe(({  drinks }) => {
-        this.name = drinks[0].strDrink;
+      const charId = params["id"];
+      this.apiService.getSingle(charId).subscribe(({ drinks }) => {
+        this.cocktail = drinks[0];
       });
     });
   }
