@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MarvelService } from '@services/marvel.service';
+import {ApiService} from "@services/api.service";
 
 @Component({
   selector: 'app-home',
@@ -8,12 +8,11 @@ import { MarvelService } from '@services/marvel.service';
 })
 export class HomeComponent {
   characters: Array<any> = [];
-  constructor(private marvelService: MarvelService) {
+  constructor(private apiService: ApiService) {
   }
   ngOnInit(): void {
-    this.marvelService.getAllCharacters().subscribe(({ data }) => {
-      this.characters = data.results;
+    this.apiService.searchByName("Margarita").subscribe(({ data }) => {
+      console.log(data)
     });
   }
-
 }

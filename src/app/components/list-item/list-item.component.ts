@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { MarvelService } from '@services/marvel.service';
 type Thumbnail = { path: string, extension: string };
 @Component({
   selector: 'app-list-item',
