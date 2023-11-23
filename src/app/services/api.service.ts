@@ -22,4 +22,7 @@ export class ApiService {
   getSingle(id: string): Observable<any> {
     return this.getRequest('/lookup.php?i=' + id);
   }
+  getRandom(): Observable<any> {
+    return this.getRequest('/random.php');
+  }
 }

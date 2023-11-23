@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { SkelettonListItemComponent } from './components/skeletton-list-item/skeletton-list-item.component';
 import { InputSearchComponent } from './components/input-search/input-search.component';
+import { MoreCocktailsComponent } from './more-cocktails/more-cocktails.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { InputSearchComponent } from './components/input-search/input-search.com
     HomeComponent,
     LoaderComponent,
     SkelettonListItemComponent,
-    InputSearchComponent
+    InputSearchComponent,
+    MoreCocktailsComponent
   ],
   imports: [
     BrowserModule,

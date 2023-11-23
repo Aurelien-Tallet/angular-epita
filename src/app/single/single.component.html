@@ -5,7 +5,8 @@
   <div class="container">
     <div class="left">
       <div class="img">
-        <img src="{{ cocktail?.strImageSource ? cocktail?.strImageSource : cocktail?.strDrinkThumb }}" alt="{{ cocktail?.strDrink }}"/>
+        <img src="{{ cocktail?.strImageSource ? cocktail?.strImageSource : cocktail?.strDrinkThumb }}"
+             alt="{{ cocktail?.strDrink }}"/>
       </div>
       <p><strong>Type:</strong> {{ cocktail?.strAlcoholic }}</p>
       <p><strong>Glass:</strong> {{ cocktail?.strGlass }}</p>
@@ -30,21 +31,11 @@
     </div>
   </div>
 </section>
-<!--<section class="single-drink container">-->
-<!--  <div class="card">-->
-<!--    <img src="{{ cocktail?.strDrinkThumb }}" alt="{{ cocktail?.strDrink }}" />-->
-<!--    <div class="card-body">-->
-<!--      <h2>{{ cocktail?.strDrink }}</h2>-->
-<!--      <p><strong>Category:</strong> {{ cocktail?.strCategory }}</p>-->
-<!--      <p><strong>Instructions:</strong> {{ cocktail?.strInstructions }}</p>-->
-<!--      <div>-->
-<!--        <h3>Ingredients:</h3>-->
-<!--        <ul>-->
-<!--          <li *ngFor="let ingredient of getIngredients(cocktail)">-->
-<!--            {{ ingredient }}-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
+
+<section class="more-cocktails-wrapper">
+  <div class="container">
+    <h3>Ces cocktails pourraient vous interresser</h3>
+    <app-more-cocktails></app-more-cocktails>
+  </div>
+
+</section>
