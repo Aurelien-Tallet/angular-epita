@@ -1,12 +1,10 @@
-<section>
-    <ul class="container-list">
-        <li *ngFor="let drink of drinks">
-            <a href="">
-                <figure>
-                    <img src="{{drink.strDrinkThumb}}" alt="{{drink.strDrink}}" />
-                </figure>
-                <span>{{drink.strDrink}}</span>
-            </a>
-        </li>
-    </ul>
-</section>
+<ul class="container-list">
+    <li *ngFor="let drink of drinks">
+        <a [routerLink]="['/',drink.id]">
+            <figure>
+                <img src="{{drink.strDrinkThumb}}" alt="{{drink.strDrink}}" />
+            </figure>
+            <span>{{drink.strDrink}}</span>
+        </a>
+    </li>
+</ul>

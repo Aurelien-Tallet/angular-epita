@@ -1,6 +1,10 @@
-<form class="container">
+<header class="header">
+  <h1 class="header__title">Cocktail Finder</h1>
+  <form class="header__form" [formGroup]="form">
     <app-input-search (searchEvent)="onSearch($event)"></app-input-search>
-</form>
-<div class="grid">
-  <app-list-item [drinks]="drinks" [isLoading]="isLoading"></app-list-item>
-</div>
+    <app-select (selectEvent)="onSelectCategory($event)" [options]="categories"></app-select>
+    <label for="checkbox">Non-Alcoholic</label>
+    <input type="checkbox" formControlName="alcoholic">
+  </form>
+</header>
+<app-list-item [drinks]="filteredDrinks " [isLoading]="isLoading"></app-list-item>

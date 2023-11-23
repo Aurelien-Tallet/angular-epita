@@ -8,7 +8,7 @@ import { EventEmitter } from '@angular/core';
 export class InputSearchComponent {
 
   searchText: string = '';
-
+  
   @Output() searchEvent = new EventEmitter<string>();
 
   timeOut: any;

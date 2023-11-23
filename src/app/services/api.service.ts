@@ -25,4 +25,10 @@ export class ApiService {
   getRandom(): Observable<any> {
     return this.getRequest('/random.php');
   }
+  getCategories(): Observable<any> {
+    return this.getRequest('/list.php?c=list');
+  }
+  getByCategory(category: string): Observable<any> {
+    return this.getRequest('/filter.php?c=' + category);
+  }
 }

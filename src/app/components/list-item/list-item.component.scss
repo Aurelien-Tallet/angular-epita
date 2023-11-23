@@ -1,30 +1,28 @@
 .container-list {
-  margin: 0 auto;
-  margin-top: 300px;
-  padding: 100px 100px;
-  border-radius: 50px;
+  margin: 0 50px;
+  padding: 0px 100px;
   display: flex;
+  height: 100%;
   justify-content: space-between;
-  border: 1px solid var(--dark-blue);
-  gap: 100px;
+  background: var(--primaryLight);
+  gap: 20px;
   flex-wrap: wrap;
-  background-color: var(--primaryLight);
   li {
     list-style: none;
     width: 300px;
     height: fit-content;
     a {
-      font-family: var(--Lora);
       color: var(--white);
       letter-spacing: 4px;
       padding: 25px;
-      font-weight: lighter;
-
+      
     }
     span {
       font-size: 1.5rem;
       font-weight: bold;
+      font-weight: lighter;
       color: var(--dark-blue);
+      font-family: var(--Lora);
       display: block;
       font-style: italic;
       text-align: right;
@@ -32,7 +30,6 @@
     }
     figure {
       margin: 0;
-      border-radius: 4px;
       overflow: hidden;
       display: block;
       img {
