@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Route} from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import {MarvelService} from "@services/marvel.service";
+import {ApiService} from "@services/api.service";
 
 @Component({
   selector: 'app-single',
@@ -10,16 +8,15 @@ import {MarvelService} from "@services/marvel.service";
   styleUrls: ['./single.component.scss']
 })
 export class SingleComponent {
-  // charId:string;
-  charId= '';
-  constructor(private route: ActivatedRoute,private marvelService: MarvelService) {
-  }
+  public name = '';
+  private charId= '';
+  constructor(private route: ActivatedRoute,private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
      this.charId = params["id"];
-      this.marvelService.getSingleCharacter(this.charId).subscribe(({ data }) => {
-        console.log(data.results);
+      this.apiService.getSingle(this.charId).subscribe(({  drinks }) => {
+        this.name = drinks[0].strDrink;
       });
     });
   }

@@ -2,10 +2,10 @@
     <app-loader *ngIf="true"></app-loader>
 
     <app-skeletton-list-item *ngIf="true"></app-skeletton-list-item>
-    <ul class="grid-container" *ngIf="!!characters">
-        <li class="list-item" *ngFor="let character of characters;">
-            <img [src]="URL(character.thumbnail)" alt="">
-            <a [routerLink]="['/character/', character.id]">{{character.name}}</a>
+    <ul class="grid-container" *ngIf="!!drinks">
+        <li class="list-item" *ngFor="let drink of drinks;">
+            <img [src]="drink.strDrinkThumb" alt="">
+            <a [routerLink]="['/drink/', drink.idDrink]">{{drink.strDrink}}</a>
         </li>
     </ul>
     <div class="pagination">

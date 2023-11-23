@@ -6,11 +6,7 @@ type Thumbnail = { path: string, extension: string };
   styleUrls: ['./list-item.component.scss'],
 })
 export class ListItemComponent {
-  @Input() characters: Array<any> = [];
+  @Input() drinks: Array<any> = [];
   @Input() isLoading: boolean = true;
   skeletonList: Array<any> = [...Array(20).fill(0)];
-  URL({ path, extension }: Thumbnail): string {
-    return `${path}.${extension}`;
-  }
-
 }
