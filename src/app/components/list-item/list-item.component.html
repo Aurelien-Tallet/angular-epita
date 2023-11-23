@@ -1,6 +1,6 @@
 <ul class="container-list">
     <li *ngFor="let drink of drinks">
-        <a [routerLink]="['/',drink.id]">
+        <a [routerLink]="['/drink',drink.idDrink]">
             <figure>
                 <img src="{{drink.strDrinkThumb}}" alt="{{drink.strDrink}}" />
             </figure>
