@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "@services/api.service";
+import {Drink} from "@models/drink.interface";
 
 @Component({
   selector: 'app-more-cocktails',
@@ -8,8 +9,7 @@ import {ApiService} from "@services/api.service";
   styleUrls: ['./more-cocktails.component.scss','../../styles.scss']
 })
 export class MoreCocktailsComponent {
-
-  public cocktails: any;
+  public cocktails: Drink[];
 
   constructor(private apiService: ApiService) {
     this.cocktails = [];
@@ -17,13 +17,6 @@ export class MoreCocktailsComponent {
 
   ngOnInit(): void {
     for(let i = 0;i <3;i++){
-      // console.log(this.cocktails)
-      // this.cocktails.push({
-      //   idDrink:15853,
-      //   image:"./assets/img/placeholder.png",
-      //   strDrink:"test",
-      //   strCategory: "category"
-      // })
       this.apiService.getRandom().subscribe(({drinks}) => {
         let image = drinks[0].strImageSource ? drinks[0].strImageSource : drinks[0].strDrinkThumb;
         if(!image || !image.indexOf(".jpg")){

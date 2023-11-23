@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
+import {Drink} from "@models/drink.interface";
 @Component({
   selector: 'app-list-item',
   templateUrl: './list-item.component.html',
   styleUrls: ['./list-item.component.scss'],
 })
 export class ListItemComponent {
-  @Input() drinks: Array<any> = [];
+  @Input() drinks: Array<Drink> = [];
   @Input() isLoading: boolean = true;
   skeletonList: Array<any> = [...Array(20).fill(0)];
 }

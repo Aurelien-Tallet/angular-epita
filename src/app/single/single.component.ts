@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ApiService} from "@services/api.service";
+import {Drink} from "@models/drink.interface";
 
 @Component({
   selector: 'app-single',
@@ -8,9 +9,10 @@ import {ApiService} from "@services/api.service";
   styleUrls: ['./single.component.scss','../../styles.scss'],
 })
 export class SingleComponent implements OnInit {
-  public cocktail: any;
+  public cocktail: Drink;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
+    this.cocktail = {};
   }
 
   getIngredients(cocktail: any): string[] {
