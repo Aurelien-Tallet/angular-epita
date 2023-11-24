@@ -13,6 +13,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { InputSearchComponent } from './components/input-search/input-search.component';
 import { MoreCocktailsComponent } from './more-cocktails/more-cocktails.component';
 import { SelectComponent } from './select/select.component';
+import { nonAlcoholicPipe } from './pipes/non-alcoholic.pipe';
+import { categoryPipe } from './pipes/category.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +26,16 @@ import { SelectComponent } from './select/select.component';
     MoreCocktailsComponent,
     InputSearchComponent,
     SelectComponent,
+    nonAlcoholicPipe,
+    categoryPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

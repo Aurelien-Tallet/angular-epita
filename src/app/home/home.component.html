@@ -4,7 +4,7 @@
     <app-input-search (searchEvent)="onSearch($event)"></app-input-search>
     <app-select (selectEvent)="onSelectCategory($event)" [options]="categories"></app-select>
     <label for="checkbox">Non-Alcoholic</label>
-    <input type="checkbox" formControlName="alcoholic">
+    <input type="checkbox" formControlName="nonAlcoholic">
   </form>
 </header>
-<app-list-item [drinks]="filteredDrinks " [isLoading]="isLoading"></app-list-item>
+<app-list-item [drinks]="drinks | category: category | nonAlcoholic: nonAlcoholic" [isLoading]="isLoading"></app-list-item>

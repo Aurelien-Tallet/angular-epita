@@ -1,3 +1,5 @@
+export type Alcoholic = 'Alcoholic' | 'Non alcoholic' | 'Optional alcohol' | null;
+
 export interface Drink {
   idDrink?: string;
   strDrink?: string;
@@ -7,7 +9,7 @@ export interface Drink {
   strVideo?: string;
   strCategory?: string;
   strIBA?: string;
-  strAlcoholic?: string;
+  strAlcoholic?: Alcoholic;
   strGlass?: string;
   strInstructions?: string;
   strInstructionsES?: string;

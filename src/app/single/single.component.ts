@@ -28,7 +28,6 @@ export class SingleComponent implements OnInit {
     }
     return ingredients;
   }
-
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       const charId = params["id"];
