@@ -1,49 +1,19 @@
 <section class="more-cocktails">
   <div *ngFor="let cocktail of cocktails" class="item">
-    <a [href]="'/drink/'+cocktail.idDrink">
+    <a [href]="'/drink/'+cocktail.id">
       <div class="item-img">
-        <img src="{{cocktail?.image}}" alt="{{ cocktail?.strDrink }}"/>
+        <img src="{{cocktail?.image}}" alt="{{ cocktail?.name }}"/>
       </div>
       <span class="desc">
       <p class="title">
-      {{cocktail?.strDrink }}
+      {{cocktail?.name }}
       </p>
 
       <p class="cat">
-        {{cocktail?.strCategory }}
+        {{cocktail?.category }}
       </p>
       </span>
     </a>
   </div>
 </section>
-<!--  <div class="bg">-->
-<!--    <h1>{{ cocktail?.strDrink }}</h1>-->
-<!--  </div>-->
-<!--  <div class="container">-->
-<!--    <div class="left">-->
-<!--      <div class="img">-->
-<!--        <img src="{{ cocktail?.strImageSource ? cocktail?.strImageSource : cocktail?.strDrinkThumb }}"-->
-<!--             alt="{{ cocktail?.strDrink }}"/>-->
-<!--      </div>-->
-<!--      <p><strong>Type:</strong> {{ cocktail?.strAlcoholic }}</p>-->
-<!--      <p><strong>Glass:</strong> {{ cocktail?.strGlass }}</p>-->
 
-<!--    </div>-->
-<!--    <div class="right">-->
-<!--      <div class="top">-->
-<!--        <h1>{{ cocktail?.strDrink }}</h1>-->
-<!--        <p>{{ cocktail?.strCategory }}</p>-->
-<!--      </div>-->
-<!--      <div class="bottom">-->
-<!--        <h3>Ingredients</h3>-->
-<!--        <ul>-->
-<!--          <li *ngFor="let ingredient of getIngredients(cocktail)">-->
-<!--            {{ ingredient }}-->
-<!--          </li>-->
-<!--        </ul>-->
-
-<!--        <h3>Instructions</h3>-->
-<!--        <p>{{ cocktail?.strInstructions }}</p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->

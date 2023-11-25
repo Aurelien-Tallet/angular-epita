@@ -1,13 +1,14 @@
 import { Pipe } from "@angular/core";
+import { Cocktail } from "@app/models/cocktail.model";
 
 @Pipe({
     name: "category",
 })
 export class categoryPipe {
-    transform(drinks: Array<any>, category: string): Array<any> {
+    transform(cocktails: Array<Cocktail>, category: string): Array<Cocktail> {
         if (category === "") {
-            return drinks;
+            return cocktails;
         }
-        return drinks.filter((drink: any) => drink.strCategory?.toLowerCase() === category.toLowerCase());
+        return cocktails.filter((c: Cocktail) => c.category?.toLowerCase() === category.toLowerCase());
     }
 }

@@ -1,32 +1,32 @@
 <section class="single-drink">
   <div class="bg">
-    <h1>{{ cocktail.strDrink }}</h1>
+    <h1>{{ cocktail.name }}</h1>
   </div>
   <div class="container">
     <div class="left">
       <div class="img">
-        <img src="{{ cocktail.strImageSource ? cocktail.strImageSource : cocktail.strDrinkThumb }}"
-             alt="{{ cocktail.strDrink }}"/>
+        <img src="{{ cocktail.imageSource ? cocktail.imageSource : cocktail.thumbnail }}"
+             alt="{{ cocktail.name }}" />
       </div>
-      <p><strong>Type:</strong> {{ cocktail.strAlcoholic }}</p>
-      <p><strong>Glass:</strong> {{ cocktail.strGlass }}</p>
+      <p><strong>Type:</strong> {{ cocktail.alcoholic }}</p>
+      <p><strong>Glass:</strong> {{ cocktail.glass }}</p>
 
     </div>
     <div class="right">
       <div class="top">
-        <h1>{{ cocktail.strDrink }}</h1>
-        <p>{{ cocktail.strCategory }}</p>
+        <h1>{{ cocktail.name }}</h1>
+        <p>{{ cocktail.category }}</p>
       </div>
       <div class="bottom">
         <h3>Ingredients</h3>
         <ul>
-          <li *ngFor="let ingredient of getIngredients(cocktail)">
+          <li *ngFor="let ingredient of cocktail.ingredients">
             {{ ingredient }}
           </li>
         </ul>
 
         <h3>Instructions</h3>
-        <p>{{ cocktail.strInstructions }}</p>
+        <p>{{ cocktail.instructions }}</p>
       </div>
     </div>
   </div>

@@ -1,10 +1,18 @@
 <ul class="container-list">
-    <li *ngFor="let drink of drinks">
-        <a [routerLink]="['/drink',drink.idDrink]">
-            <figure>
-                <img src="{{drink.strDrinkThumb}}" alt="{{drink.strDrink}}" />
-            </figure>
-            <span>{{drink.strDrink}}</span>
-        </a>
-    </li>
+        <li *ngFor="let cocktail of cocktails" class="item">
+            <a [href]="'/drink/'+cocktail.id">
+              <div class="item-img">
+                <img src="{{cocktail?.thumbnail}}" alt="{{ cocktail?.name }}"/>
+              </div>
+              <span class="desc">
+              <p class="title">
+              {{cocktail?.name }}
+              </p>
+        
+              <p class="cat">
+                {{cocktail?.category }}
+              </p>
+              </span>
+            </a>
+        </li>
 </ul>

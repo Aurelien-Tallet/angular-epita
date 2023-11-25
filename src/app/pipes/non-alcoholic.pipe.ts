@@ -1,15 +1,15 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { Drink } from "@app/models/drink.interface";
+import { Cocktail } from "@app/models/cocktail.model";
 
 @Pipe({
     name: "nonAlcoholic",
 })
 export class nonAlcoholicPipe implements PipeTransform {
-    transform(drinks: Array<Drink>, nonAlcoholic: boolean): Array<Drink> {
+    transform(cocktails: Array<Cocktail>, nonAlcoholic: boolean): Array<Cocktail> {
         if (nonAlcoholic) {
-            return drinks.filter((drink: Drink) => (drink.strAlcoholic === "Non alcoholic") || (drink.strAlcoholic === "Optional alcohol"));
+            return cocktails.filter((c: Cocktail) => (c.alcoholic === "Non alcoholic") || (c.alcoholic === "Optional alcohol"));
         } else {
-            return drinks.filter((drink: Drink) => drink.strAlcoholic === "Alcoholic" || drink.strAlcoholic === "Optional alcohol");
+            return cocktails.filter((c: Cocktail) => c.alcoholic === "Alcoholic" || c.alcoholic === "Optional alcohol");
         }
     }
 }

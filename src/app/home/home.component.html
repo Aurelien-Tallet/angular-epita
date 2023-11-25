@@ -3,8 +3,8 @@
   <form class="header__form" [formGroup]="form">
     <app-input-search (searchEvent)="onSearch($event)"></app-input-search>
     <app-select (selectEvent)="onSelectCategory($event)" [options]="categories"></app-select>
-    <label for="checkbox">Non-Alcoholic</label>
-    <input type="checkbox" formControlName="nonAlcoholic">
+    <input type="checkbox" formControlName="nonAlcoholic" id="non-alcoholic">
+    <label for="non-alcoholic">Non-Alcoholic</label>
   </form>
 </header>
-<app-list-item [drinks]="drinks | category: category | nonAlcoholic: nonAlcoholic" [isLoading]="isLoading"></app-list-item>
+<app-list-item [cocktails]="cocktails | category: category | nonAlcoholic: nonAlcoholic" [isLoading]="isLoading"></app-list-item>
