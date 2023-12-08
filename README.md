@@ -1,27 +1,37 @@
-# AngularEpita
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
+# About
+Apero is a simple, lightweight and responsive Angular project aimed to serve as a basic search engine for Cocktails.
+The search engine leverages two APIs to provide users with a broad range of cocktails to choose from. This project was created as part of a student module.
 
-## Development server
+## APIs Used
+**The Cocktail DB API**: This API provides information about various cocktails, their ingredients and instructions.
+**Aurelien Nezzar API**: This API is used to fetch the list of categories for the cocktails.
+## Project Structure
+The project follows a structured format for easy navigation and understanding:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+ - components: Contains various components such as input-search, list-item, loader and so on.
+ - dto: Contains Data Transfer Objects for categories and drinks.
+ - helpers: Contains helper files for the application. 
+ - home: Contains the home component files.
+ - models: Contains the model for cocktails.
+ - more-cocktails: Contains the further cocktails component files.
+ - pipes: Contains the custom pipes files. select: Contains the select component files.
+ - services: Contains service files like cocktail service.
+ - single: Contains the single component files.
+ - assets: Contains the static files like css, icons and images.
 
-## Code scaffolding
+## How to Run
+  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ ### **Project Prerequisite**
+ Download and Install **npm** & **Node.js**
 
-## Build
+### Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ 1. `git clone 'https://github.com/Aurelien-Tallet/angular-epita/'`
+ 2. `cd angular-epita`
+ 3. `npm install`
+ 4. `ng serve`
+ 5. Navigate to http://localhost:4200/
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Enjoy exploring cocktails with Apero!
