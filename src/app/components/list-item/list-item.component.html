@@ -1,18 +1,26 @@
-<ul class="container-list">
-        <li *ngFor="let cocktail of cocktails" class="item">
-            <a [href]="'/drink/'+cocktail.id">
-              <div class="item-img">
-                <img src="{{cocktail?.thumbnail}}" alt="{{ cocktail?.name }}"/>
-              </div>
-              <span class="desc">
-              <p class="title">
-              {{cocktail?.name }}
-              </p>
-        
-              <p class="cat">
-                {{cocktail?.category }}
-              </p>
-              </span>
-            </a>
-        </li>
-</ul>
+<section class="pagination-wrapper">
+  <ul class="container-list">
+    <li *ngFor="let cocktail of cocktailsToShow" class="item">
+      <a [href]="'/drink/'+cocktail.id">
+        <div class="item-img">
+          <img src="{{cocktail?.thumbnail}}" alt="{{ cocktail?.name }}" />
+        </div>
+        <span class="desc">
+          <p class="title">
+            {{cocktail?.name }}
+          </p>
+
+          <p class="cat">
+            {{cocktail?.category }}
+          </p>
+        </span>
+      </a>
+    </li>
+  </ul>
+  <div class="pagination" *ngIf="pages > 1">
+    <a *ngIf="pagination[0] !== '1'" (click)="onSelectPage(1)">1</a>
+    <a *ngFor="let page of pagination" (click)="onSelectPage(page)">
+      {{ page }}
+    </a>
+  </div>
+</section>

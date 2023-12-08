@@ -1,5 +1,6 @@
 import { Component, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-input-search',
   templateUrl: './input-search.component.html',
@@ -8,18 +9,31 @@ import { EventEmitter } from '@angular/core';
 export class InputSearchComponent {
 
   searchText: string = '';
-  
+
   @Output() searchEvent = new EventEmitter<string>();
 
   timeOut: any;
 
-  constructor() {
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      if (params['search']) {
+        this.searchText = params['search'];
+      }
+    });
   }
+
 
   search(event: any) {
     clearTimeout(this.timeOut);
     this.timeOut = setTimeout(() => {
       this.searchEvent.emit(event.target.value);
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: { search: event.target.value },
+        queryParamsHandling: 'merge'
+      });
     }, 500);
   }
 }

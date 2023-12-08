@@ -34,7 +34,6 @@ export class HomeComponent {
     this.isLoading = true;
     this.cocktailService.searchByName(searchText).subscribe((cocktails: Cocktail[]) => {
       this.cocktails = cocktails;
-      console.log(this.cocktails);
       this.isLoading = false;
     });
   }
