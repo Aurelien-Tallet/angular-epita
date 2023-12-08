@@ -20,6 +20,12 @@ export class InputSearchComponent {
     this.route.queryParams.subscribe(params => {
       if (params['search']) {
         this.searchText = params['search'];
+        this.searchEvent.emit(this.searchText);
+      }
+    });
+    this.route.queryParams.subscribe(params => {
+      if (params['page']) {
+        this.searchEvent.emit(this.searchText);
       }
     });
   }
@@ -31,7 +37,7 @@ export class InputSearchComponent {
       this.searchEvent.emit(event.target.value);
       this.router.navigate([], {
         relativeTo: this.route,
-        queryParams: { search: event.target.value },
+        queryParams: { search: event.target.value, page: 1 },
         queryParamsHandling: 'merge'
       });
     }, 500);

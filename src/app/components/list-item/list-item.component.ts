@@ -11,10 +11,12 @@ export class ListItemComponent {
   @Input() cocktails: Array<Cocktail> = [];
   @Input() isLoading: boolean = true;
 
-  public pages: number = 0;
+  get pages(): number {
+    return Math.ceil(this.cocktails.length % 9 === 0 ? this.cocktails.length / 9 : (this.cocktails.length / 9) + 1);
+  }
   public currentPage: number = 1;
   get pagination(): Array<string | number> {
-    const arr: (string | number)[] = [...Array(this.pages - 1).keys()].map((i) => (i + 1).toString());
+    const arr: (string | number)[] = [...Array(this.pages).keys()].map((i) => (i + 1).toString());
     if (this.pages > 10) {
       if (this.currentPage < 4) {
         arr.splice(7, this.pages - 10, "...");
@@ -29,7 +31,7 @@ export class ListItemComponent {
     }
     if (arr[arr.length - 1] === "...") {
       arr.splice(arr.length - 2, 1);
-      arr.push(this.pages -1);
+      arr.push(this.pages - 1);
     }
     return arr;
   }
@@ -47,30 +49,19 @@ export class ListItemComponent {
   }
 
   ngOnInit(): void {
-    this.pages = Math.ceil(this.cocktails.length % 9 === 0 ? this.cocktails.length / 9 : this.cocktails.length / 9 + 1);
-    this.route.queryParams.subscribe((params) => {
-      const page = params["page"];
-      if (!page) {
-        this.currentPage = 1;
-      }
-      else {
-        this.currentPage = parseInt(page) > this.pages ? this.pages : parseInt(page);
-      }
-    });
+      this.route.queryParams.subscribe((params) => {
+        const page = params["page"];
+        if (!page) {
+          this.currentPage = 1;
+        }
+        else {
+          this.currentPage = parseInt(page) > this.pages ? this.pages : parseInt(page);
+        }
+      });
   }
   public onSelectPage(page: string | number): void {
     if (page === "...") return;
     this.currentPage = parseInt(page.toString());
-    this.router.navigate(["/"], { queryParams: { page: this.currentPage } });
-  }
-  public onNextPage(): void {
-    if (this.currentPage === this.pages) return;
-    this.currentPage = this.currentPage + 1;
-    this.router.navigate(["/"], { queryParams: { page: this.currentPage } });
-  }
-  public onPrevPage(): void {
-    if (this.currentPage === 1) return;
-    this.currentPage = this.currentPage - 1;
     this.router.navigate(["/"], { queryParams: { page: this.currentPage } });
   }
 }

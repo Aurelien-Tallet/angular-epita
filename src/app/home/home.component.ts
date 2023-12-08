@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CocktailService } from "@app/services/cocktail.service";
 import { FormGroup, FormControl } from '@angular/forms';
 import { Cocktail } from '@app/models/cocktail.model';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +13,7 @@ export class HomeComponent {
   categories: Array<any> = [];
   isLoading: boolean = true;
   form: FormGroup;
-  constructor(private cocktailService: CocktailService) {
+  constructor(private cocktailService: CocktailService, private route: ActivatedRoute, private router: Router) {
     this.form = new FormGroup({
       nonAlcoholic: new FormControl(false),
       category: new FormControl(""),
@@ -26,8 +27,8 @@ export class HomeComponent {
     this.cocktailService.getCategories().subscribe((categories) => {
       this.categories = categories;
     });
-
   }
+
   get nonAlcoholic(): boolean { return this.form.get("nonAlcoholic")?.value; }
   get category(): string { return this.form.get("category")?.value; }
   onSearch(searchText: string) {
