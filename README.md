@@ -35,7 +35,7 @@ The project follows a structured format for easy navigation and understanding:
 
 ## Notes
 
- - The Aurélien Nezzar API was created by ourselves to create a missing route useful to our project.
+ - The **Aurélien Nezzar API** was created by ourselves to create a missing route useful to our project.
  - Some search filters was made locally because of the fact that the API hasn't all required routes for the viability of the project. Angular pipes were used to achieve this in the file `home.component.html` for the component `app-list-item`.
 
 Enjoy exploring cocktails with Apero!
