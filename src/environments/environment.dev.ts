@@ -1,7 +1,7 @@
 export default {
   production: false,
-  // Prefix baseURL by cors-anywhere to avoid CORS issues
-  
-  baseUrl: 'http://www.thecocktaildb.com/api/json/v1/1',
+  baseUrl: 'https://the-cocktail-db.p.rapidapi.com',
+  apiKey: 'dba7e85a68msh851bc2ebc2f8870p12af62jsn911ec0ba365c',
+  apiHost: 'the-cocktail-db.p.rapidapi.com'
 } as const;
 

@@ -11,7 +11,7 @@ export class HomeComponent {
   cocktails: Array<Cocktail> = [];
   categories: Array<any> = [];
   isLoading: boolean = true;
-  form: FormGroup;;
+  form: FormGroup;
   constructor(private cocktailService: CocktailService) {
     this.form = new FormGroup({
       nonAlcoholic: new FormControl(false),
@@ -19,9 +19,8 @@ export class HomeComponent {
     });
   }
   ngOnInit(): void {
-    this.cocktailService.searchByName("").subscribe((cocktails : Cocktail[]) => {
+    this.cocktailService.searchByName("").subscribe((cocktails: Cocktail[]) => {
       this.cocktails = cocktails;
-      console.log(cocktails); 
       this.isLoading = false;
     });
     this.cocktailService.getCategories().subscribe((categories) => {
@@ -33,7 +32,11 @@ export class HomeComponent {
   get category(): string { return this.form.get("category")?.value; }
   onSearch(searchText: string) {
     this.isLoading = true;
-    this.cocktailService.searchByName(searchText).forEach
+    this.cocktailService.searchByName(searchText).subscribe((cocktails: Cocktail[]) => {
+      this.cocktails = cocktails;
+      console.log(this.cocktails);
+      this.isLoading = false;
+    });
   }
   onSelectCategory(category: string) {
     this.form.get("category")?.setValue(category);

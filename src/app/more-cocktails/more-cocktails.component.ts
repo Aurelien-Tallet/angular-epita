@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CocktailService } from "@app/services/cocktail.service";
-import { Drink } from "@app/dto/drink.dto";
 import { Cocktail } from '@app/models/cocktail.model';
 @Component({
   selector: 'app-more-cocktails',
