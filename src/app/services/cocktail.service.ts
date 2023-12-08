@@ -6,7 +6,7 @@ import { DrinksResponse } from '@app/dto/drink.dto';
 import { CategoriesResponse } from '@app/dto/categories.dto';
 import { Cocktail, cocktailMapper } from '@app/models/cocktail.model';
 
-const { baseUrl, apiKey, apiHost } = environment;
+const { baseUrl, apiKey, apiHost, categoriesEndpoint } = environment;
 
 const httpHeaders: HttpHeaders = new HttpHeaders({
   'X-RapidAPI-Key': apiKey,
@@ -25,9 +25,9 @@ export class CocktailService {
   searchByName(name: string): Observable<Cocktail[]> {
 
     const data = this.http.get<DrinksResponse>(`${baseUrl}/search.php?s=${name}`, HEADERS);
-    console.log(data);
+
     return data.pipe(map(({ drinks }) => {
-      return drinks.map(cocktailMapper) || [];
+      return drinks?.map(cocktailMapper) || [];
     }));
   }
   getSingle(id: string): Observable<Cocktail[]> {
@@ -39,13 +39,13 @@ export class CocktailService {
   getRandom(): Observable<Cocktail[]> {
     const data = this.http.get<DrinksResponse>(`${baseUrl}/random.php`, HEADERS);
     return data.pipe(map(({ drinks }) => {
-      return drinks.map(cocktailMapper) || [];
+      return drinks?.map(cocktailMapper) || [];
     }));
   }
   getCategories(): Observable<string[]> {
-    return this.http.get<CategoriesResponse>(`${baseUrl}/list.php?c=list`, HEADERS).pipe(
+    return this.http.get<CategoriesResponse>(`${categoriesEndpoint}`).pipe(
       map((response) => {
-        return response?.drinks?.map((drink) => drink?.strCategory);
+        return response?.drinks?.map((drink) => drink?.strCategory) || [];
       })
     );
   }
