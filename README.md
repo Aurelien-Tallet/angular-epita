@@ -1,4 +1,3 @@
-
 # About
 Apero is a simple, lightweight and responsive Angular project aimed to serve as a basic search engine for Cocktails.
 The search engine leverages two APIs to provide users with a broad range of cocktails to choose from. This project was created as part of a student module.
@@ -33,5 +32,10 @@ The project follows a structured format for easy navigation and understanding:
  3. `npm install`
  4. `ng serve`
  5. Navigate to http://localhost:4200/
+
+## Notes
+
+ - The Aurélien Nezzar API was created by ourselves to create a missing route useful to our project.
+ - Some search filters was made locally because of the fact that the API hasn't all required routes for the viability of the project. Angular pipes were used to achieve this in the file `home.component.html` for the component `app-list-item`.
 
 Enjoy exploring cocktails with Apero!
