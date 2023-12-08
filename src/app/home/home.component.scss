@@ -2,10 +2,16 @@
     margin: 0 auto;
     margin-top: 100px;
     max-width: 1200px;
-    height: 200px;
     &__form {
         display: flex;
         align-items: center;
-        gap: 20px;
+      gap: 20px;
+      .checkbox-wrapper{
+        #non-alcoholic{
+          margin-right: 10px;
+          cursor: pointer;
+        }
+
+      }
     }
 }
