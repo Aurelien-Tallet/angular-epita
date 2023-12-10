@@ -26,6 +26,7 @@ export class HomeComponent {
     });
     this.cocktailService.getCategories().subscribe((categories) => {
       this.categories = categories;
+
     });
   }
 

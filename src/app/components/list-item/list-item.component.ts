@@ -42,6 +42,7 @@ export class ListItemComponent {
   get cocktailsToShow(): Array<Cocktail> {
 
     if (this.cocktails.length === 0) return [];
+    if (this.currentPage <= 0) this.currentPage = 1;
     const start = (this.currentPage - 1) * 9;
     const end = this.currentPage * 9;
     return this.cocktails.slice(start, end);
@@ -62,7 +63,7 @@ export class ListItemComponent {
         this.currentPage = parseInt(page) > this.pages ? this.pages : parseInt(page);
       }
     });
-  }
+    }
   public onSelectPage(page: string | number): void {
     if (page === "...") return;
     this.currentPage = parseInt(page.toString());
