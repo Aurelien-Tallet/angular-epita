@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Drink } from "@app/dto/drink.dto";
 import { Cocktail } from '@app/models/cocktail.model';
 @Component({
   selector: 'app-list-item',
@@ -17,7 +16,7 @@ export class ListItemComponent {
     const hasRemainder = totalCocktails % 9 !== 0;
     return hasRemainder ? fullPages + 1 : fullPages;
   }
-  get results(): string { return this.cocktails.length === 0 ? "No results match" : `${this.cocktails.length} cocktails found`; }
+  get results(): string { return this.cocktails.length === 0 ? "No results match" : `${this.cocktails.length} drinks found`; }
   public currentPage: number = 1;
   get pagination(): Array<string | number> {
     const arr: (string | number)[] = [...Array(this.pages).keys()].map((i) => (i + 1).toString());

@@ -1,5 +1,5 @@
 <section class="pagination-wrapper">
-  <div class="results">
+  <div class="results" *ngIf="!isLoading">
     <p> {{results}}</p>
   </div>
   <ul class="container-list" *ngIf="isLoading">
