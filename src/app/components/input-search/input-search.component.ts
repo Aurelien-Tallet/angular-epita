@@ -18,13 +18,8 @@ export class InputSearchComponent {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      if (params['search']) {
+      if (params['search'] || params['page']) {
         this.searchText = params['search'];
-        this.searchEvent.emit(this.searchText);
-      }
-    });
-    this.route.queryParams.subscribe(params => {
-      if (params['page']) {
         this.searchEvent.emit(this.searchText);
       }
     });

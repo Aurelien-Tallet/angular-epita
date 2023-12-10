@@ -1,4 +1,7 @@
 <section class="pagination-wrapper">
+  <div class="results">
+    <p> {{results}}</p>
+  </div>
   <ul class="container-list">
     <li *ngFor="let cocktail of cocktailsToShow" class="item">
       <a [href]="'/drink/'+cocktail.id">

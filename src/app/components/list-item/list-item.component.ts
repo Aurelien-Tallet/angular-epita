@@ -12,8 +12,12 @@ export class ListItemComponent {
   @Input() isLoading: boolean = true;
 
   get pages(): number {
-    return Math.ceil(this.cocktails.length % 9 === 0 ? this.cocktails.length / 9 : (this.cocktails.length / 9) + 1);
+    const totalCocktails = this.cocktails.length;
+    const fullPages = Math.floor(totalCocktails / 9);
+    const hasRemainder = totalCocktails % 9 !== 0;
+    return hasRemainder ? fullPages + 1 : fullPages;
   }
+  get results(): string { return this.cocktails.length === 0 ? "No results match" : `${this.cocktails.length} cocktails found`; }
   public currentPage: number = 1;
   get pagination(): Array<string | number> {
     const arr: (string | number)[] = [...Array(this.pages).keys()].map((i) => (i + 1).toString());
@@ -49,19 +53,19 @@ export class ListItemComponent {
   }
 
   ngOnInit(): void {
-      this.route.queryParams.subscribe((params) => {
-        const page = params["page"];
-        if (!page) {
-          this.currentPage = 1;
-        }
-        else {
-          this.currentPage = parseInt(page) > this.pages ? this.pages : parseInt(page);
-        }
-      });
+    this.route.queryParams.subscribe((params) => {
+      const page = params["page"];
+      if (!page) {
+        this.currentPage = 1;
+      }
+      else {
+        this.currentPage = parseInt(page) > this.pages ? this.pages : parseInt(page);
+      }
+    });
   }
   public onSelectPage(page: string | number): void {
     if (page === "...") return;
     this.currentPage = parseInt(page.toString());
-    this.router.navigate(["/"], { queryParams: { page: this.currentPage } });
+    this.router.navigate([], { relativeTo: this.route, queryParams: { page: this.currentPage }, queryParamsHandling: 'merge' });
   }
 }

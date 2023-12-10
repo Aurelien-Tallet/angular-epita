@@ -1,6 +1,6 @@
 <div class="select">
     <select (ngModelChange)="select($event)" [(ngModel)]="selected" class="custom-select">
-        <option value="" selected>Choisir une catégorie</option>
+        <option value="" selected>Choose a category</option>
         <option *ngFor="let option of options" [value]="option">{{option}}</option>
     </select>
 </div>
