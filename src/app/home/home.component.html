@@ -8,5 +8,5 @@
     </div>
   </form>
 </header>
-<app-list-item *ngIf="!isLoading"
+<app-list-item [isLoading]="isLoading"
   [cocktails]="cocktails | category: category | nonAlcoholic: nonAlcoholic"></app-list-item>

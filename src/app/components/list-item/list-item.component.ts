@@ -10,7 +10,7 @@ import { Cocktail } from '@app/models/cocktail.model';
 export class ListItemComponent {
   @Input() cocktails: Array<Cocktail> = [];
   @Input() isLoading: boolean = true;
-
+  skeletons: Array<number> = [...Array(9).keys()];
   get pages(): number {
     const totalCocktails = this.cocktails.length;
     const fullPages = Math.floor(totalCocktails / 9);

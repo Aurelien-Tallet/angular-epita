@@ -2,7 +2,18 @@
   <div class="results">
     <p> {{results}}</p>
   </div>
-  <ul class="container-list">
+  <ul class="container-list" *ngIf="isLoading">
+    <li *ngFor="let s of skeletons" class="item skeleton">
+      <div class="item-img">
+        <div class="skeleton-img"></div>
+      </div>
+      <span class="desc">
+        <p class="title"><span class="skeleton-title"></span></p>
+        <p class="cat"><span class="skeleton-cat"></span></p>
+      </span>
+    </li>
+  </ul>
+  <ul class="container-list" *ngIf="!isLoading">
     <li *ngFor="let cocktail of cocktailsToShow" class="item">
       <a [href]="'/drink/'+cocktail.id">
         <div class="item-img">
@@ -20,6 +31,7 @@
       </a>
     </li>
   </ul>
+
   <div class="pagination" *ngIf="pages > 1">
     <a *ngIf="pagination[0] !== '1'" (click)="onSelectPage(1)">1</a>
     <a *ngFor="let page of pagination" (click)="onSelectPage(page)">
