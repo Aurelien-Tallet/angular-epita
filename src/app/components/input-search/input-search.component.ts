@@ -19,8 +19,9 @@ export class InputSearchComponent {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       if (params['search'] || params['page']) {
-        this.searchText = params['search'];
-        this.searchEvent.emit(this.searchText);
+        const text = params['search'] !== undefined ? params['search'] : '';
+        this.searchText = text;
+        this.searchEvent.emit(text);
       }
     });
   }
