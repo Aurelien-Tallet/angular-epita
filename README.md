@@ -40,7 +40,7 @@ The project follows a structured format for easy navigation and understanding:
 
 Enjoy exploring cocktails with Apero!
 
-## Disclaimer /!\
+## Disclaimer
 
 - With the project well underway, we noticed that the Cocktail DB API could prove unstable, especially on image CDNs with dead links or long responses. 
   We apologize for the damaged experience.
