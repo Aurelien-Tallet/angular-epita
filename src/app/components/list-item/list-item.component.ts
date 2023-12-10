@@ -63,10 +63,12 @@ export class ListItemComponent {
         this.currentPage = parseInt(page) > this.pages ? this.pages : parseInt(page);
       }
     });
-    }
+  }
   public onSelectPage(page: string | number): void {
     if (page === "...") return;
     this.currentPage = parseInt(page.toString());
     this.router.navigate([], { relativeTo: this.route, queryParams: { page: this.currentPage }, queryParamsHandling: 'merge' });
   }
+  public isActivedPage(page: string | number): boolean { return this.currentPage === parseInt(page.toString()); }
+
 }

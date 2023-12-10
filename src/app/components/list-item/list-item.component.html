@@ -34,7 +34,7 @@
 
   <div class="pagination" *ngIf="pages > 1">
     <a *ngIf="pagination[0] !== '1'" (click)="onSelectPage(1)">1</a>
-    <a *ngFor="let page of pagination" (click)="onSelectPage(page)">
+    <a *ngFor="let page of pagination" (click)="onSelectPage(page)" [class.active]="isActivedPage(page)">
       {{ page }}
     </a>
   </div>
