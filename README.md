@@ -39,3 +39,7 @@ The project follows a structured format for easy navigation and understanding:
  - Some search filters was made locally because of the fact that the API hasn't all required routes for the viability of the project. Angular pipes were used to achieve this in the file `home.component.html` for the component `app-list-item`.
 
 Enjoy exploring cocktails with Apero!
+
+## Author
+
+Aurélien NEZZAR & Aurélien TALLET 
