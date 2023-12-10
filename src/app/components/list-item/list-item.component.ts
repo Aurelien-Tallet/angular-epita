@@ -60,9 +60,10 @@ export class ListItemComponent {
         this.currentPage = 1;
       }
       else {
-        this.currentPage = parseInt(page) > this.pages ? this.pages : parseInt(page);
+        this.currentPage = parseInt(page);
       }
     });
+    console.log(this.currentPage);
   }
   public onSelectPage(page: string | number): void {
     if (page === "...") return;
