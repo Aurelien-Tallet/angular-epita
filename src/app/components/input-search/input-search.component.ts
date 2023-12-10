@@ -36,6 +36,6 @@ export class InputSearchComponent {
         queryParams: { search: event.target.value, page: 1 },
         queryParamsHandling: 'merge'
       });
-    }, 500);
+    }, 200);
   }
 }
