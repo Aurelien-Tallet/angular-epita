@@ -15,6 +15,8 @@ import { MoreCocktailsComponent } from './more-cocktails/more-cocktails.componen
 import { SelectComponent } from './select/select.component';
 import { nonAlcoholicPipe } from './pipes/non-alcoholic.pipe';
 import { categoryPipe } from './pipes/category.pipe';
+import { SkeletonComponent } from './skeleton/skeleton.component';
+import { ImageComponent } from './image/image.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { categoryPipe } from './pipes/category.pipe';
     InputSearchComponent,
     SelectComponent,
     nonAlcoholicPipe,
-    categoryPipe
+    categoryPipe,
+    SkeletonComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,

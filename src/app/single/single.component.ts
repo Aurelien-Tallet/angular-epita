@@ -10,6 +10,7 @@ import { Cocktail } from '@app/models/cocktail.model';
 })
 export class SingleComponent implements OnInit {
   cocktail: Cocktail;
+  isLoading: boolean = true;
 
 
   constructor(private route: ActivatedRoute, private cocktailService: CocktailService, private router: Router) {
@@ -19,11 +20,12 @@ export class SingleComponent implements OnInit {
     this.route.params.subscribe((params) => {
       const charId = params["id"];
       this.cocktailService.getSingle(charId).subscribe((cocktail) => {
-        if(!cocktail) {
+        if (!cocktail) {
           this.router.navigate(["/"]);
           return;
         }
         this.cocktail = cocktail[0];
+        this.isLoading = false;
       });
     });
   }

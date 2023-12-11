@@ -9,6 +9,8 @@ import { Cocktail } from '@app/models/cocktail.model';
 export class MoreCocktailsComponent {
   public cocktails: Cocktail[];
 
+  public isLoading: boolean = true;
+
   constructor(private cocktailService: CocktailService) {
     this.cocktails = [];
   }
@@ -22,8 +24,12 @@ export class MoreCocktailsComponent {
         }
         cocktail[0].image = image;
         this.cocktails.push(cocktail[0]);
+        if (this.cocktails.length === 3) this.isLoading = false;
       });
     }
+  }
+  checkImage(image: string): void {
+    console.log("ERRORRR");
   }
 
 }

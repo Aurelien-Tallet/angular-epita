@@ -1,8 +1,8 @@
-<section class="more-cocktails">
+<section class="more-cocktails" *ngIf="!isLoading">
   <div *ngFor="let cocktail of cocktails" class="item">
     <a [href]="'/drink/'+cocktail.id">
       <div class="item-img">
-        <img src="{{cocktail?.image}}" alt="{{ cocktail?.name }}"/>
+        <app-image [src]="cocktail?.thumbnail" ></app-image>
       </div>
       <span class="desc">
       <p class="title">
@@ -16,4 +16,5 @@
     </a>
   </div>
 </section>
+<app-skeleton *ngIf="isLoading" [number]="3"></app-skeleton>
 

@@ -2,22 +2,12 @@
   <div class="results" *ngIf="!isLoading">
     <p> {{results}}</p>
   </div>
-  <ul class="container-list" *ngIf="isLoading">
-    <li *ngFor="let s of skeletons" class="item skeleton">
-      <div class="item-img">
-        <div class="skeleton-img"></div>
-      </div>
-      <span class="desc">
-        <p class="title"><span class="skeleton-title"></span></p>
-        <p class="cat"><span class="skeleton-cat"></span></p>
-      </span>
-    </li>
-  </ul>
+  <app-skeleton *ngIf="isLoading" [number]="9"></app-skeleton>
   <ul class="container-list" *ngIf="!isLoading">
     <li *ngFor="let cocktail of cocktailsToShow" class="item">
       <a [href]="'/drink/'+cocktail.id">
         <div class="item-img">
-          <img src="{{cocktail?.thumbnail}}" alt="{{ cocktail?.name }}" />
+          <app-image [src]="cocktail?.thumbnail"></app-image>
         </div>
         <span class="desc">
           <p class="title">
