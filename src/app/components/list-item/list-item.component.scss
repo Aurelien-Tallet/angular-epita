@@ -26,7 +26,7 @@
       &:hover {
         .item-img {
           box-shadow: rgba(232, 54, 104, 0.34) 3px 10px 30px -3px;
-          img {
+         ::ng-deep img {
             transform: scale(1.03);
           }
         }
@@ -39,7 +39,7 @@
         border-radius: 8px;
         overflow: hidden;
 
-        img {
+       ::ng-deep img {
           transition: transform 0.5s ease-out;
         }
       }
@@ -122,16 +122,3 @@
   }
 }
 
-@keyframes skeleton {
-  0% {
-    background-position: 0px;
-  }
-  100% {
-    background-position: 1000px;
-  }
-}
-@keyframes loading {
-  to {
-    background-position-x: -20%;
-  }
-}
